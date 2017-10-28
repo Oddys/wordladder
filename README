@@ -1,0 +1,20 @@
+A solver for word ladder puzzles.
+
+File with a list of English words required for the program
+was downloaded from http://thinkpython2.com/code/words.txt.
+
+As the author of Think Python says, this list was "collected and contributed
+to the public domain by Grady Ward as part of the Moby lexicon project [...].
+It is a list of 113,809 official crosswords; that is,
+words that are considered valid in crossword puzzles and other word games".
+
+Building each graph for the first time may take several seconds.
+Further reuse with reading graphs data from a file, where it have been stored,
+makes execution almost instant.
+
+graphs.pkl file contains a serialized python dictionary of some the most useful
+word graphs (for the lists of 3-, 4-, 5-, 6-letter words).
+
+Warning from the official Python site: "The pickle module is not secure 
+against erroneous or maliciously constructed data. Never unpickle data received
+from an untrusted or unauthenticated source".
