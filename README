@@ -1,6 +1,12 @@
 A solver for word ladder puzzles.
 
-File with a list of English words required for the program
+The main function, providing user interface for the program: wordladder.py.
+
+WordGraph class definition: wordgraph.py
+
+Functions for reading data from and writing data to files: persist.py.
+
+words.txt file with a list of English words required for the program
 was downloaded from http://thinkpython2.com/code/words.txt.
 
 As the author of Think Python says, this list was "collected and contributed
@@ -15,6 +21,6 @@ makes execution almost instant.
 graphs.pkl file contains a serialized python dictionary of some the most useful
 word graphs (for the lists of 3-, 4-, 5-, 6-letter words).
 
-Warning from the official Python site: "The pickle module is not secure 
+Warning from the official Python site: "The pickle module is not secure
 against erroneous or maliciously constructed data. Never unpickle data received
 from an untrusted or unauthenticated source".
