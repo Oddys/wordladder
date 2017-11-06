@@ -1,4 +1,7 @@
+#!/usr/bin/python3.6
 """A solver for word ladder puzzles."""
+
+import argparse
 
 from wordgraph import WordGraph
 from persist import worddict_from_file, graphs_from_file, graphs_to_file
@@ -32,8 +35,8 @@ def main(words_filename, graphs_filename=None):
             graphs[word_len] = graph
         print('Building ladder...')
         try:
-            print(' -> '.join(graph.ladder(start, end)))
-        except TypeError:  # if graph.ladder returns None
+            print(' -> '.join(graph.path(start, end)))
+        except TypeError:  # if graph.path returns None
             print(f'{start} -> {end}: It is imposible to build a word ladder.')
 
         further_choice = input('Do you want to continue? [y/n] ')
@@ -42,9 +45,17 @@ def main(words_filename, graphs_filename=None):
             break
         print()
 
-    if len(graphs) != start_num_of_graphs and graphs_filename:
+    if graphs_filename and len(graphs) != start_num_of_graphs:
         graphs_to_file(graphs_filename, graphs)
 
 
 if __name__ == '__main__':
-    main('words.txt', 'graphs.pkl')
+    parser = argparse.ArgumentParser(
+        description="Find the shortest path from word START to word END in which \
+        two adjacent words differ by one letter."
+    )
+    parser.add_argument("words", help="a file with a list of words, one word per line")
+    parser.add_argument("-g", "--graphs", help="a file for reading and writing \
+                        already created word graphs")
+    args = parser.parse_args()
+    main(args.words, args.graphs)

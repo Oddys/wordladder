@@ -40,7 +40,7 @@ class WordGraph:
                 neighbours.add(node)
         self.nodes[word] = neighbours
 
-    def ladder(self, start, end):
+    def path(self, start, end):
         """Find a chain of other words to link start and end, in which two
         adjacent words differ by one letter. Return None if not found.
         """
